@@ -63,6 +63,21 @@
 								<h2 class="major">Blog</h2>
 								<ul>
 									<li>
+										<h3><a name="2020_03_03_1">4th February 2020 - Handy Linux commands (grep, sed, awk)</a></h3>
+										<p><b>grep</b></p>
+										<p>Often I find myself wanting to search for which files in my current directory (and subdirectories) contain a particular word or phrase (for example, a variable used in various C files). To do so:</p>
+										<p><font face="courier new">grep -rn . -e 'text'</font><p>
+										<p><font face="courier new">grep</font> is the command, <font face="courier new">-rn</font> means recursively and show the line number (add <font face="courier new">-w</font> to match the whole word), <font face="courier new">.</font> is for the present directory (and all subdirectories) and <font face="courier new">'text'</font> (including the quote marks) is the text you want to find.</p>
+										<p><b>awk</b></p>
+										<p>The modelling framework I use gives me output files with over 40 columns, each of which containing different variables. Sometimes I want to copy these output files from one place to another (usually, off the supercomputer to my local machine) but am only interested in a few columns, so to save time copying large files across, you can use <font face="courier new">awk</font> to cut out particular columns:</p>
+										<p><font face="courier new">awk '{print $1,$3,$7}' file > out</font></p>
+										<p>The above command prints columns 1, 3 and 7 from <font face="courier new">file</font> to a new file <font face="courier new">out</font>, which will be a much smaller file so faster to copy.</p>
+										<p><b>sed</b></p>
+										<p>Similarly, to cut particular lines from a file into a new file:</p>
+										<p><font face="courier new">sed -n '100,200p,201q' file > out</font></p>
+										<p>This will cut lines 100 to 200 from <font face="courier new">file</font> and print them to the new file <font face="courier new">out</font>.</p>
+									</li>
+									<li>
 										<h3><a name="2020_02_03_2">3rd February 2020 (2) - New publication!</a></h3>
 										<p>Our new paper is now available online, entitled "<a href="https://doi.org/10.1016/j.ymeth.2020.01.010" target="_blank">Multi-scale approaches for the simulation of cardiac electrophysiology: II - tissue-level structure and function</a>". It's part 2 (part 1 not yet available) of a duo of papers detailed the methods underlying computational modelling of cardiac electrophysiology. Enjoy!</p>
 									</li>
